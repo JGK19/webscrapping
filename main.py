@@ -5,12 +5,6 @@ link = 'http://airfoiltools.com/search/index?MAirfoilSearchForm%5BtextSearch%5D=
 headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36'}
 
 def main():
-    """req = requests.get(link, headers = headers)
-    print(req)
-    #print(req.text)
-    site = bs(req.text, "html.parser")
-    #print(site.prettify())
-    print(site.find('textarea', class_="gLFyf")['value']) """
 
     req = requests.get(link, headers = headers)
     site = bs(req.text, "html.parser")
@@ -31,7 +25,7 @@ def main():
         next = get_links('Next', site)[0] #pega o link da proxima pagina
         if next == None: #se não houver link quebra while
             break
-        #if count >= 5:
+        #if count >= 114:
             #break
         req = requests.get(next, headers = headers) #faz requisição para proxima pagina
         site = bs(req.text, "html.parser") #atualiza variavel site
